@@ -298,7 +298,7 @@ public class FabricEntityTypeBuilder<T extends Entity> {
 			EntityType<T> ret = super.build();
 
 			if (customComparatorLogic != null) {
-				FabricMinecartComparatorLogicRegistry.registerCustomLogic(ret, customComparatorLogic);
+				FabricMinecartComparatorLogicRegistry.register(ret, customComparatorLogic);
 			}
 
 			return ret;
