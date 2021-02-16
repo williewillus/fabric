@@ -13,10 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package net.fabricmc.fabric.api.object.builder.v1.entity;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.vehicle.AbstractMinecartEntity;
@@ -24,8 +27,8 @@ import net.minecraft.entity.vehicle.AbstractMinecartEntity;
 public class FabricMinecartComparatorLogicRegistry {
 	private static final Map<EntityType<?>, MinecartComparatorLogic<?>> logics = new HashMap<>();
 
-	/* @Nullable */
-	@SuppressWarnings("unchecked") // just to appease typechecker, we checked in the entity type builder that the type of the logic exactly matches the entity type
+	@Nullable
+	@SuppressWarnings("unchecked")
 	public static MinecartComparatorLogic<AbstractMinecartEntity> getCustomComparatorLogic(EntityType<?> type) {
 		return (MinecartComparatorLogic<AbstractMinecartEntity>) logics.get(type);
 	}
